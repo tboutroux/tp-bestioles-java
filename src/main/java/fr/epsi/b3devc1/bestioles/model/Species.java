@@ -22,7 +22,7 @@ public class Species implements Serializable {
     @Column(name = "latin_name")
     private String latinName;
 
-    @OneToMany(mappedBy = "species")
+    @OneToMany(mappedBy = "species", fetch = FetchType.EAGER)
     private Set<Animal> animals;
 
     public Species() {}

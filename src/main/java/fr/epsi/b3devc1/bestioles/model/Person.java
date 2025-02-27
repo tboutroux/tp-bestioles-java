@@ -52,7 +52,7 @@ public class Person implements Serializable {
     @JoinTable(
             name = "person_animals",
             joinColumns = @JoinColumn(name = "person_id"),
-            inverseJoinColumns = @JoinColumn(name = "animals_id"),
+            inverseJoinColumns = @JoinColumn(name = "animals_id")
     )
     private Set<Animal> animals;
 

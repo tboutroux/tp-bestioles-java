@@ -14,6 +14,9 @@ public class Person implements Serializable {
     @Column(name = "id")
     private Integer id;
 
+    @Column(name = "age")
+    private Integer age;
+
     @Column(name = "firstname")
     private String firstname;
 
@@ -28,6 +31,22 @@ public class Person implements Serializable {
 
     @Column(name = "active", columnDefinition = "TINYINT(1)")
     private boolean active;
+
+    public Set<Animal> getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(Set<Animal> animals) {
+        this.animals = animals;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     @ManyToMany
     @JoinTable(
@@ -47,7 +66,8 @@ public class Person implements Serializable {
 
     public Person() {}
 
-    public Person(String firstname, String lastname, String login, String mdp, boolean active) {
+    public Person(Integer age, String firstname, String lastname, String login, String mdp, boolean active) {
+        this.age = age;
         this.firstname = firstname;
         this.lastname = lastname;
         this.login = login;
@@ -101,5 +121,27 @@ public class Person implements Serializable {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", login='" + login + '\'' +
+                ", mdp='" + mdp + '\'' +
+                ", active=" + active +
+                ", animals=" + animals +
+                ", roles=" + roles +
+                '}';
     }
 }
